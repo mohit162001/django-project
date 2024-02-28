@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+</head>
+<style>
+     .article-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px; 
+        list-style: none; 
+        padding: 0; 
+        margin: 1rem;
+    }
+
+    .article-list li {
+        background-color: #f0f0f0;
+        padding: 20px; 
+        border-radius: 5px; 
+    }
+    input{
+        margin-top: 10px;
+        display: block;
+        padding: 0.6rem;
+        font-size: 1.2rem;
+    }
+    label{
+        font-size: 1.5rem;
+    }
+    button{
+        margin-top: 15px;
+        padding: 10px;
+    }
+    ::selection {
+        color: white;
+        background: black;
+      }
+</style>
+<body>
+    <a href="http://localhost:8080/blog/"><button>Back</button></a>
+    <h1 style="text-align: center;">Blogs</h1>
+
+    <form  method="post">
+        {% csrf_token%}
+        {{form}}
+        <!-- <label for="">Title</label>
+        <input id="title" name="title" type="text" >
+        <label for="">Author</label>
+        <input id="author" name="author" type="text" >
+        <label for="">Topic</label>
+        <input id="topic" name="topic" type="text" > -->
+        <input type="submit" value="Create Article">
+    </form>
+
+<ul  class="article-list">
+    {% for article in articles %}
+    <li style="text-transform: capitalize;">
+     <h2>Title: {{article.title}}</h2>
+     <p>Author: {{article.author}}</p>
+     <p>Topic: {{article.topic}}</p>
+     <p>Posted at: {{ article.created_at}}</p>
+    <a href="http://localhost:8080/blog/articles/{{article.id}}"> <button>View</button></a>
+    </li>
+   {% endfor %}
+</ul>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+</head>
+<style>
+    button{
+        padding: 1rem;
+        font-size: 15px;
+        margin: 1rem;
+    }
+    span{
+        
+        font-weight: 600;
+    }
+</style>
+<body>
+    <a href="http://localhost:8080/blog/articles"><button>Back</button></a>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <div style="margin-top: 5rem; font-size: 2rem;">
+            <h1 style=" text-align: center;">{{article.title}}</h1>
+            <p><span>Author:</span> {{article.author}}</p>
+            <p><span>Topic:</span> {{article.topic}}</p>
+            <p><span>Date:</span> {{article.created_at}}</p>
+            <a href="http://localhost:8080/blog/delete/{{article.id}}"><button>Delete</button></a>
+        </div>
+    </div>
+</body>
+</html>
