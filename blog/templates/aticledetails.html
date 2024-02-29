@@ -10,6 +10,12 @@
         padding: 1rem;
         font-size: 15px;
         margin: 1rem;
+        border: none; 
+        background: #1379ff; 
+        color: #ffffff;
+    }
+    body{
+        background: rgb(159, 220, 255);
     }
     span{
         
@@ -24,6 +30,7 @@
             <p><span>Author:</span> {{article.author}}</p>
             <p><span>Topic:</span> {{article.topic}}</p>
             <p><span>Date:</span> {{article.created_at}}</p>
+            <a href="http://localhost:8080/blog/edit/{{article.id}}"><button>Updated</button></a>
             <a href="http://localhost:8080/blog/delete/{{article.id}}"><button>Delete</button></a>
         </div>
     </div>

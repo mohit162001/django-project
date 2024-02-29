@@ -14,13 +14,18 @@
         padding: 0; 
         margin: 1rem;
     }
-
+    body{
+        background: rgb(159, 220, 255);
+    }
     .article-list li {
-        background-color: #f0f0f0;
+        background-color: #46cbff;
         padding: 20px; 
         border-radius: 5px; 
+        border: 2px solid #1379ff;
     }
     input{
+        outline: none;
+        border: none;
         margin-top: 10px;
         display: block;
         padding: 0.6rem;
@@ -32,6 +37,9 @@
     button{
         margin-top: 15px;
         padding: 10px;
+        border: none;
+         background: #1379ff; 
+         color: #ffffff;
     }
     ::selection {
         color: white;
@@ -39,10 +47,14 @@
       }
 </style>
 <body>
-    <a href="http://localhost:8080/blog/"><button>Back</button></a>
-    <h1 style="text-align: center;">Blogs</h1>
+    <div >
+        <a href="http://localhost:8080/blog/"><button >Back</button></a>
+        <h1 style="text-align: center;">Create a blog</h1>
+    </div>
 
-    <form  method="post">
+
+   <div style="display: flex; justify-content: center; align-items: center;">
+    <form   method="post">
         {% csrf_token%}
         {{form}}
         <!-- <label for="">Title</label>
@@ -51,9 +63,10 @@
         <input id="author" name="author" type="text" >
         <label for="">Topic</label>
         <input id="topic" name="topic" type="text" > -->
-        <input type="submit" value="Create Article">
+        <input  type="submit" value="Create Article" style="border: none; background: #1379ff; color: #ffffff;">
     </form>
-
+   </div>    
+   <h1 style="text-align:left; margin-left: 1rem;">Blogs:</h1>
 <ul  class="article-list">
     {% for article in articles %}
     <li style="text-transform: capitalize;">
@@ -61,7 +74,7 @@
      <p>Author: {{article.author}}</p>
      <p>Topic: {{article.topic}}</p>
      <p>Posted at: {{ article.created_at}}</p>
-    <a href="http://localhost:8080/blog/articles/{{article.id}}"> <button>View</button></a>
+    <a href="http://localhost:8080/blog/articles/{{article.id}}"> <button style="border: none; background: #1379ff; color: #ffffff;">View</button></a>
     </li>
    {% endfor %}
 </ul>
