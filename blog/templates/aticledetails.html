@@ -21,17 +21,43 @@
         
         font-weight: 600;
     }
+    input,textarea{
+        outline: none;
+        border: none;
+        margin-top: 10px;
+        display: block;
+        padding: 0.6rem;
+        font-size: 1.2rem;
+    }
+    label{
+        font-size: 1.5rem;
+    }
+    button{
+        margin-top: 15px;
+        padding: 10px;
+        border: none;
+         background: #1379ff; 
+         color: #ffffff;
+    }
+    ::selection {
+        color: white;
+        background: black;
+      }
 </style>
 <body>
     <a href="http://localhost:8080/blog/articles"><button>Back</button></a>
     <div style="display: flex; justify-content: center; align-items: center;">
-        <div style="margin-top: 5rem; font-size: 2rem;">
+        <div style="margin-top: -1rem; font-size: 1.6rem;">
             <h1 style=" text-align: center;">{{article.title}}</h1>
             <p><span>Author:</span> {{article.author}}</p>
             <p><span>Topic:</span> {{article.topic}}</p>
             <p><span>Date:</span> {{article.created_at}}</p>
+            <span>Article:</span>
+            <textarea value="" name="content" id="content" name="content" cols="50" rows="12" readonly>{{article.content}}</textarea>
+           <div>
             <a href="http://localhost:8080/blog/edit/{{article.id}}"><button>Updated</button></a>
             <a href="http://localhost:8080/blog/delete/{{article.id}}"><button>Delete</button></a>
+           </div>
         </div>
     </div>
 </body>

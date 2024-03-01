@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Update Blog</title>
 </head>
 <style>
     body{
         background: rgb(159, 220, 255);
     }
-    input{
+    input,textarea{
+        outline: none;
+        border: none;
         margin-top: 10px;
         display: block;
         padding: 0.6rem;
@@ -21,23 +23,37 @@
     button{
         margin-top: 15px;
         padding: 10px;
+        border: none;
+         background: #1379ff; 
+         color: #ffffff;
+    }
+    ::selection {
+        color: white;
+        background: black;
+      }
+    button{
+        margin-top: 15px;
+        padding: 10px;
+    }
+    textarea{
+        margin-top: 10px;
     }
 </style>
 <body>
     <a href="http://localhost:8080/blog/articles"><button style="border: none; background: #1379ff; color: #ffffff;">Back</button></a>
-    <h1 style="text-align: center; margin-top: 4rem;">Edit the &nbsp; "{{article.title}}"</h1>
-    <div style="display: flex; justify-content: center; align-items: center;">
+    <h1 style="text-align: center; margin-top: 1rem;">Edit the &nbsp; "{{article.title}}"</h1>
+    <div style="display: flex; margin-top: -1rem; justify-content: center; align-items: center;">
        
-        <div style="margin-top: 5rem;">
+        <div style="margin-top: 2rem;">
             <form action=""  method="post">
                 {% csrf_token%}
-                {{form}}
-                <!-- <label for="">Title</label>
+                <label for="">Title</label>
                 <input id="title" value="{{article.title}}" name="title" type="text" >
                 <label for="">Author</label>
                 <input id="author" value="{{article.author}}" name="author" type="text" >
                 <label for="">Topic</label>
-                <input id="topic" value="{{article.topic}}" name="topic" type="text" > -->
+                <input id="topic" value="{{article.topic}}" name="topic" type="text" >
+                <textarea value="" name="content" id="content" name="content" cols="50" rows="12" placeholder="write article here...">{{article.content}}</textarea>
                 <div style="display: flex;">
                     <input type="submit" value="Update Article" style="border: none; background: #1379ff; color: #ffffff;">
                 <a style="text-decoration: none" href="http://localhost:8080/blog/articles"><input type="button" value="Cancle" style="background: none; border: none;  "></a>
