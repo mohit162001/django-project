@@ -5,6 +5,7 @@ class ArticleModel(models.Model):
     title = models.CharField(max_length=20)
     author = models.CharField(max_length=20)
     topic = models.CharField(max_length=40)
+    content = models.CharField(max_length=300)
     created_at = models.DateTimeField()
 
     def __str__(self):
