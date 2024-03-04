@@ -96,29 +96,27 @@ class ArticleDetails(View):
         
 class DeleteArticle(View):
     def get(self,request,id):
-        try:
             artcile = ArticleModel.objects.get(id=id)
             artcile.delete()
             print("Deleted Article: " + str(artcile.title))
             return redirect("/blog/articles")
-        except:
-            return HttpResponse("can not delete the itee")
 
 class UpdateArticle(View):
     def get(self,request,id):
         article = ArticleModel.objects.get(id=id)
-        form = ArticleForm(instance=article)
-        return render(request,'edit.html',{'article':article, "form":form})
+        return render(request,'edit.html',{'article':article})
     
     def post(self,request,id):
         title=request.POST['title']
         author=request.POST['author']
         topic=request.POST['topic']
+        content = request.POST['content']
         print(title,author,topic)
         article = ArticleModel.objects.get(id=id)
         article.title=title
         article.author=author 
         article.topic=topic
+        article.content=content
         article.created_at=datetime.now()
         article.save()
         print("Updated",article)
