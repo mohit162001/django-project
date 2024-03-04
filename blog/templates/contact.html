@@ -27,13 +27,16 @@
       margin-top: 15px;
       padding: 10px;
     }
+    textarea{
+      resize: none;
+    }
     </style>
 </head>
 <body>
     <a href="http://localhost:8080/blog/"><button style="border: none; background: #1379ff; color: #ffffff;">Back</button></a>
     <div class="container">
         <h1>Contact Us</h1>
-        <div class="form-container">
+        <div class="form-container" style="margin-top: 2rem;">
             <form action="" method="post" class="row g-3">
                 {% csrf_token %}
                 <div class="col-md-6">
@@ -51,7 +54,7 @@
                 </div>
                 <div class="col-12">
                   <label for="message" class="form-label">Message</label>
-                  <textarea name="message" id="message" class="form-control"placeholder="write your message here..." aria-label="With textarea"></textarea>
+                  <textarea name="message" id="message" class="form-control"placeholder="write your message here..." aria-label="With textarea" rows="6"></textarea>
                 </div>
         
                 <div class="col-md-4">
