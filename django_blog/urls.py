@@ -19,9 +19,11 @@ from django.urls import path,include
 from blog.views import Article
 
 admin.site.site_header= "Django Admin Panel"
-
+from graphene_django.views import GraphQLView
+from django.views.decorators.csrf import csrf_exempt
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/',include("blog.urls"))
+    path('blog/',include("blog.urls")),
+    path("graphql/", csrf_exempt(GraphQLView.as_view(graphiql=True)))
     # path('articles/',Article.as_view())
 ]

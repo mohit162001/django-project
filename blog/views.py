@@ -103,6 +103,7 @@ class DeleteArticle(View):
 
 class UpdateArticle(View):
     def get(self,request,id):
+        
         article = ArticleModel.objects.get(id=id)
         return render(request,'edit.html',{'article':article})
     

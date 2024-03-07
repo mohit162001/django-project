@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from .views import Home, About_us,Article,ArticleDetails,Contact,DeleteArticle,UpdateArticle
+
 urlpatterns = [
     path('',Home.as_view()),
     path('articles',Article.as_view()),
